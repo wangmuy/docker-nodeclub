@@ -17,7 +17,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN cd /var/lib && git clone https://github.com/cnodejs/nodeclub.git \
-  && cd nodeclub && git checkout 46d23adaa3499586c38020c330420e1e293de9a1
+  && cd nodeclub && git checkout 46d23adaa3499586c38020c330420e1e293de9a1 \
+  && make install && make test
 
 COPY start.sh /start.sh
 RUN chmod 777 /start.sh
